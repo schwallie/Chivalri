@@ -14,6 +14,8 @@
     <body>
         <h1><b>{% for user in userid %}
     {{user.name}}
+    <br>
+    Rating: {{user.rating}}
 {% endfor %}</b></h1>
         <div id="listContainer">
             <div class="listControl">
@@ -88,5 +90,6 @@
                 </li>
             </ul>
         </div>
+<a href="/logout">logout</a> 
     </body>
 </html>

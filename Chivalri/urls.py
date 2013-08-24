@@ -1,19 +1,16 @@
 from django.conf.urls import patterns, include, url
-from Chivalri.views import expand
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^usercp/', include('usercp.urls'))
-    # Examples:
-    # url(r'^$', 'Chivalri.views.home', name='home'),
-    # url(r'^Chivalri/', include('Chivalri.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^usercp/', include('usercp.urls')),
+     url(r'^register/', 'Chivalri.views.register'),
+    url(r'^accounts/login/$','django.contrib.auth.views.login'),
+    url(r'^login/$','django.contrib.auth.views.login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
+    url(r'^$', 'Chivalri.views.home', name='home'),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )
